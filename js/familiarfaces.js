@@ -71,32 +71,39 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 function loadGame(gameCode) {
+    if (!styleSheet) {
+        console.log("Style sheet didn't exist yet, trying to make it.")
+        const styleElement = document.createElement('style');
+        document.head.appendChild(styleElement);
+        styleSheet = styleElement.sheet;
+    }
+    else{
+        console.log("Style sheet exists, trying to clear it.")
+        // clear previous background rules, so that new nonconflicting rules can be added
+        while(styleSheet.cssRules.length > 0) {
+            styleSheet.deleteRule(0);
+        }
+    }
+    styleIndex = document.styleSheets.length - 1;
+    console.log("Index for our stylesheet is "+styleIndex)
+
     imageData[gameCode].forEach((imageID, index) => {
         num = Math.pow(2, index+1);
         className = `.tile.tile-${num} .tile-inner`;
-        changeBackground(className, getGoogleDriveURL(imageID, 400, 400));
+        
+        changeBackground(className, getGoogleDriveURL(imageID, 400, 400), styleIndex);
     })
     document.getElementsByClassName("game-container")[0].style.display = "block";
 }
 function getGoogleDriveURL(id, width, height) {
     return `https://drive.google.com/thumbnail?id=${id}&sz=w${width || 200}-h${height || 200}`;
 }
-function changeBackground(selector, url) {
-    if (!styleSheet) {
-        const styleElement = document.createElement('style');
-        document.head.appendChild(styleElement);
-        styleSheet = styleElement.sheet;
-    }
-
-    index = document.styleSheets.length - 1;
-    document.styleSheets[index].insertRule(
-        `${selector}{ background: url(${url})
-    }`);
-    document.styleSheets[index].insertRule(
-        `${selector}{ background-size: cover !important}`
+function changeBackground(selector, url, sheetIndex){
+    document.styleSheets[sheetIndex].insertRule(
+        `${selector}{ background-image: url(${url}) !important}`
     );
-
 }
+
 
 var gameButton = document.getElementById("game-code-button");
 gameButton.onclick = () => {

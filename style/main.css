@@ -42,6 +42,7 @@ html, body {
   .tile-inner{
     display: flex;
     align-items: flex-end;
+    background-size: cover !important;
   }
 
 body {
