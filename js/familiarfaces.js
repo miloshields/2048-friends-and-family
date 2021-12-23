@@ -18,6 +18,20 @@ const imageData =
             "1VyNXfC2h5uS9Psv4gMu65pWtYUALJXKW",
             "14MIPdrFU-FQJCvu4hrNb4ce7vJIZrqzl",
             "1nZo3NT5gs7duX-KtEWKIR5VWnKlfpi_r"
+        ],
+    "1985":
+        [
+            "1QrBKquKQJQXhG9YaSORvBcprZeT8wKQs",
+            "1HwG8iZsqJLsip-Btfc3pCQUtYEoplL40",
+            "1gxs6XD3-cB9OqDGt3qQ13adU8X8y8GsV",
+            "1QX0vYAG6HLp9NKoWjaxbFkrb4aG1-FPF",
+            "10HezV3GSvPxDRKNpiNSV5hiJx8Ztgqto",
+            "1JpgOu8Waf3T1AaLlZcfywhd_kFQur1lY",
+            "1UAwOOROhlyA0asF9ok83seNLP0XPQkiz",
+            "1kJazss_M2YEUNI-mwHeehcT_9yoNJQ0k",
+            "1iSGXZ9IffJajbeP2QUdXErs5vcbF1byC",
+            "1lyxEbfSNsb35Wy9vHGnhsFvdLbWGx6rw",
+            "1D6bB1VCO7Y73zahn6sQH3HJfXbM6jIF2"
         ]
 }
 function getCookie(cname) {
